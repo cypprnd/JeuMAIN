@@ -4,14 +4,16 @@ class Environnement;
 
 class Evenement : public Polytech {
 protected:
-    std::vector<Personnage*> personnages;  // Liste des personnages dans l'événement
-    std::vector<Environnement*> lieux;  // Liste des environnements associés à l'événement
+    std::vector<Personnage*> _personnages;  // Liste des personnages dans l'événement
+    std::vector<Environnement*> _lieux;  // Liste des environnements associés à l'événement
 public:
     virtual void afficher() override = 0;  // Afficher les informations relatives à l'événement
     virtual void action() = 0;  // Actions spécifiques à chaque événement
+
+    Evenement(std::vector<Personnage*> personnages, std::vector<Environnement*> lieux) : _personnages(personnages), _lieux(lieux) {}
 };
 
-class Rentree : public Polytech {
+class Rentree : public Evenement{
 public:
     void afficher() override {
         std::cout << "C'est la rentrée universitaire!" << std::endl;
@@ -57,3 +59,9 @@ public:
         // Effets sur la motivation, l'énergie, etc.
     }
 };
+
+
+//opérateur de sucharge pour ajouter des personnages à un événement
+std::vector<Personnage*> operator+(Personnage perso){
+    
+}
