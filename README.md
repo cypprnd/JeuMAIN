@@ -17,4 +17,19 @@ Nous jouons un étudiant qui à les statistiques suivantes :
 ### Personnages non joueurs
 Durant votre aventure vous pourrez rencontrer différents personnages tels que des professeurs, des éléves qui au grès des choix qu'ils vous proposerons changeront vos statistiques 
 
+## L'environnement
+Dans le jeu vous parcourez différents lieux ou des événements peuvent avoir lieu. Par exemple, la bibliothèque universitaire, le Crous, la salle de classe, un bar ...
+
+
 ## Les événements
+Régulièrement, notre étudiant est soumis à des événements qui influencerons ses trois années au sein de Polytech. Un événement comprend un ou plusieurs lieux ainsi que un ou plusieurs perosnnages non joueurs. Il y a deux types principaux d'événements :
+1. Evenement récurrent :
+   Ces événements sont des points de passages obligatoires à l'histoire
+   1.1 Rentrée : Au début de chaque année, il y a l'événement rentrée ou on rencontre de nouveaux personnages (proffeseurs et éléves) ainsi que la découverte des objectifs de l'année
+   1.2 Vacances : Au cours de l'année, l'événement vacances permet de se reposer pour recharger les batteries ou de réviser pour essayer d'avoir des bonnes notes
+   1.3 Contrôle : Contrôle évaluant les compétences en analyse hilbertienne, optimisation continue ou convolution par exemple
+3. Evenement aléatoire :
+   Ces événements se situe entre deux événements récurrents, ils sont proposés aléatoirement ou en fonction des choix de notre joueur.
+   2.1 Ski : Vous partez une semaine au ski avec Polytech dans les Alpes françaises
+   2.2 WEC : Week-end d'intégration avec Polytech, attention événement pouvant avoir de dangereuses répércussions sur les notes et l'énérgie
+   2.3 Rencontre innatendue : Vous rencontrez un personnage appartenant à la faculté, cette événement à des répercussions imprévisibles, aussi bien positive que négative
