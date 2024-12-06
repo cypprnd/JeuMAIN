@@ -25,7 +25,7 @@ Dans le jeu vous parcourez différents lieux ou des événements peuvent avoir l
 Régulièrement, notre étudiant est soumis à des événements qui influencerons ses trois années au sein de Polytech. Un événement comprend un ou plusieurs lieux ainsi que un ou plusieurs perosnnages non joueurs. Il y a deux types principaux d'événements :
 1. Evenement récurrent :
    Ces événements sont des points de passages obligatoires à l'histoire
-   1.1 Rentrée : Au début de chaque année, il y a l'événement rentrée ou on rencontre de nouveaux personnages (proffeseurs et éléves) ainsi que la découverte des objectifs de l'année
+   1.1 Rentrée : Au début de chaque année, il y a l'événement rentrée ou on rencontre de nouveaux personnages (proffeseurs et éléves) ainsi que la découverte des objectifs de l'année\\
    1.2 Vacances : Au cours de l'année, l'événement vacances permet de se reposer pour recharger les batteries ou de réviser pour essayer d'avoir des bonnes notes
    1.3 Contrôle : Contrôle évaluant les compétences en analyse hilbertienne, optimisation continue ou convolution par exemple
 3. Evenement aléatoire :
