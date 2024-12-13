@@ -1,11 +1,11 @@
 #include <stdlib.h> 
 #include <stdio.h> 
 #include <iostream>
-#include 'Environnement.hh'
 #include 'Evenement.hh'
-#include 'Polytech.hh'
+#include 'Polytech.hpp'
 #include 'Personnage.hh'
 
+// sort un nb random
 int RandRange(int range_min, int range_max){
     int r = ((double)rand() / RAND_MAX) * (range_max - range_min) + range_min;
     return r;
@@ -21,17 +21,37 @@ int main(){
 
     /* Initiliser les différents Personnages : 
      * Nous
-     * Yves
-     * Des profs
+     * Yves (avec qui il y aura des quetes secondaires)
+     * Des profs 
      */
 
-    /* Initiliser les différents Environnement : 
-     * Crous
-     * 
+    /* Le temps passe de samaine en semaine, il y a 1 evenement par semaine
+     * des semaines le choix est aléatoire mais à d'autres moment ils sont déja prévus (controle, vacance, rentre, semaine de ski, WEC)
+    */
+
+    /* Initiliser les différents Evenement : 
+     * rentrée (on explique le dérouler de l'année, quand sont les partiels, les vacances etc...)
+     * réviser (gagne des point d'apprentissage mmais tu perds en popularité)
+     * se reposeer (gagne en energie)
+     * sortir (tu perds en energie et en révision mais tu gagnes en popularité)
+     * faire du sport (améliore la récupération d'energie et les révision)
+     * controle
+     */
+
+    /* Les controles : 
+     * créer différents types de controles
+     * on peut par exemple, pour un controle de maths, faire du calcul mental et la difficulté des calcul dépend 
+     * du temps passé à réviser, du niveau de fatigue et de la sévérité du prof
+     * jeu de mémorisation
+     * une courte enigme 
+     * on peut ajouter un projet de groupe ou la popullarite et le temps de revision vont donner une note
+     * jeu de mémoire (réecrire une phrase affiché dans le terminal)
+     * QCM
+     * des vrais faux
      * 
      */
 
-    // 
+    // Ajouter une commande pour pouvoir voir ses statistiques
 
     // On veut ensuite simuler trois années (donc deux boucles for)
 
