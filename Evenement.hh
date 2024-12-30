@@ -10,7 +10,7 @@ public:
     virtual void afficher() override = 0;  // Afficher les informations relatives à l'événement
     virtual void action() = 0;  // Actions spécifiques à chaque événement
 
-    Evenement(std::vector<Personnage*> personnages, std::vector<Environnement*> lieux) : _personnages(personnages), _lieux(lieux) {}
+    Evenement(std::vector<Personnage*> personnages) : _personnages(personnages){}
 };
 
 class Rentree : public Evenement{

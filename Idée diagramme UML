@@ -16,7 +16,7 @@ protected:
 
 }
 
-class Rentree : public Polytech {}
+class Rentree : public Evenement {}
 
 class Rencontre : public Evenement {}
 
@@ -48,7 +48,7 @@ class Yves : public NPC { // une recontre innatendu qui te sort de ta routine }
 
 
 
-class Environnement : public Evenement {}
+class Environnement : public Polytech {}
 
 class Crous : public Environnement {}
 
