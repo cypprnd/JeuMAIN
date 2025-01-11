@@ -12,6 +12,7 @@
 - Surcharge d'opérateur (2)
 - Ajouter un niveau de hiérarchie (faire Polytech qui initilise le jeu et qui a tous les paramètres?)
 - Mettre des commentaires
+- Faire les tests unitaires
 
 
 ## Liste des taches pour le rapport
