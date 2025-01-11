@@ -93,6 +93,8 @@ public:
 struct Obstacle {
         int x;
         int y;
+        int height;
+        int width;
     };
 
 void jumpGame(Stats& stats) {
@@ -129,7 +131,11 @@ void jumpGame(Stats& stats) {
 
             // Déplace et affiche les obstacles
             for (auto it = obstacles.begin(); it != obstacles.end();) {
-                mvprintw(it->y, it->x, "#");
+                for (int i = 0; i < it->height; ++i) {
+                    for (int j = 0; j < it->width; ++j) {
+                        mvprintw(it->y + i, it->x + j, "#");
+                    }
+                }
                 it->x -= 1;
 
                 // Vérifie les collisions
