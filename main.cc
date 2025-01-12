@@ -6,7 +6,8 @@
 #include <ctime>
 
 #include "personnage.hpp"
-
+#include "evenement.hpp"
+#include "stats.hpp"
 
 void randomevent(std::vector<Evenement*> evenements_aleatoires, Stats stats){
     for (size_t i = 0; i < 3 ; ++i) {
@@ -29,6 +30,7 @@ void randomevent(std::vector<Evenement*> evenements_aleatoires, Stats stats){
                 }
             }
 }
+
 int main() {
     srand(static_cast<unsigned int>(time(nullptr))); // Initialisation de la graine aléatoire
 

@@ -32,36 +32,36 @@ struct Snow {
 // Fonction pour afficher le menu avec du texte ajusté
 void showMenu(sf::RenderWindow &window, sf::Font &font, bool &gameStarted) {
     sf::Text titleText("Ski Game", font, 48);
-    titleText.setFillColor(sf::Color::White);
+    titleText.setFillColor(sf::Color::Blue);
     titleText.setPosition(WINDOW_WIDTH / 2 - titleText.getLocalBounds().width / 2, 100);
 
     // Ajuster le texte des instructions pour ne pas dépasser la fenêtre
-    sf::Text instructionsText("Appuyez sur 'Entrée' pour commencer", font, 24);
-    instructionsText.setFillColor(sf::Color::White);
+    sf::Text instructionsText("Appuyez sur 'Entree' pour commencer", font, 24);
+    instructionsText.setFillColor(sf::Color::Black);
     instructionsText.setPosition(WINDOW_WIDTH / 2 - instructionsText.getLocalBounds().width / 2, 200);
 
     // Afficher les règles en plusieurs lignes si nécessaire
     std::string rules = "Règles: \n\n- Utilisez les flèches gauche et droite pour déplacer le joueur.\n- Passez entre les portes pour marquer des points.\n- Evitez de heurter les portes!";
     sf::Text rulesText(rules, font, 24);
-    rulesText.setFillColor(sf::Color::White);
+    rulesText.setFillColor(sf::Color::Black);
 
     // Diviser le texte en lignes pour s'adapter à la largeur de la fenêtre
-    std::string line1 = "- Utilisez les flèches gauche et droite pour déplacer le joueur.";
-    std::string line2 = "- Passez entre les portes pour marquer des points.";
-    std::string line3 = "- Evitez de heurter les portes!";
+    std::string line1 = "- Utilisez les fleches gauche \n et droite pour deplacer le joueur.\n";
+    std::string line2 = "- Passez entre les portes \n pour marquer des points.\n";
+    std::string line3 = "- Evitez de heurter les portes !\n";
     
     sf::Text line1Text(line1, font, 24);
     sf::Text line2Text(line2, font, 24);
     sf::Text line3Text(line3, font, 24);
 
-    line1Text.setFillColor(sf::Color::White);
-    line2Text.setFillColor(sf::Color::White);
-    line3Text.setFillColor(sf::Color::White);
+    line1Text.setFillColor(sf::Color::Black);
+    line2Text.setFillColor(sf::Color::Black);
+    line3Text.setFillColor(sf::Color::Black);
 
     // Ajuster la position des lignes pour qu'elles ne se chevauchent pas
     line1Text.setPosition(WINDOW_WIDTH / 2 - line1Text.getLocalBounds().width / 2, 300);
-    line2Text.setPosition(WINDOW_WIDTH / 2 - line2Text.getLocalBounds().width / 2, 350);
-    line3Text.setPosition(WINDOW_WIDTH / 2 - line3Text.getLocalBounds().width / 2, 400);
+    line2Text.setPosition(WINDOW_WIDTH / 2 - line2Text.getLocalBounds().width / 2, 400);
+    line3Text.setPosition(WINDOW_WIDTH / 2 - line3Text.getLocalBounds().width / 2, 500);
 
     // Affichage du menu
     while (!gameStarted && window.isOpen()) {
@@ -74,7 +74,7 @@ void showMenu(sf::RenderWindow &window, sf::Font &font, bool &gameStarted) {
             }
         }
 
-        window.clear();
+        window.clear(snowColor);
         window.draw(titleText);
         window.draw(instructionsText);
         window.draw(line1Text);
