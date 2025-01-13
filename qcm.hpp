@@ -23,6 +23,12 @@ vector<pair<string, string>> create_questions(string niveau_difficulte) {
       {"Le système binaire utilise uniquement les chiffres 0 et 1 ?", "vrai"},
       {"Le jeu Tetris est un jeu de puzzle ?", "vrai"},
       {"Un byte est composé de 8 bits ?", "vrai"},
+      {"Le jeu Pong est un jeu de sport ?", "faux"},
+      {"Le jeu Pong est un jeu de sport ?", "faux"},
+      {"Le jeu Pong est un jeu de sport ?", "faux"},
+      {"Le jeu Pong est un jeu de sport ?", "faux"},
+      {"Le jeu Pong est un jeu de sport ?", "faux"},
+      {"Le jeu Pong est un jeu de sport ?", "faux"},
       {"Le jeu Pong est un jeu de sport ?", "faux"}
     };
   } else if (niveau_difficulte == "moyen") {
@@ -34,6 +40,13 @@ vector<pair<string, string>> create_questions(string niveau_difficulte) {
       {"Un programme informatique est un ensemble d'instructions écrites dans un langage de programmation ?", "vrai"},
       {"Le jeu Zelda est un jeu de rôle ?", "vrai"},
       {"Une variable est un emplacement mémoire qui peut stocker une valeur ?", "vrai"},
+      {"Une variable est un emplacement mémoire qui peut stocker une valeur ?", "vrai"},
+      {"Une variable est un emplacement mémoire qui peut stocker une valeur ?", "vrai"},
+      {"Une variable est un emplacement mémoire qui peut stocker une valeur ?", "vrai"},
+      {"Une variable est un emplacement mémoire qui peut stocker une valeur ?", "vrai"},
+      {"Une variable est un emplacement mémoire qui peut stocker une valeur ?", "vrai"},
+      {"Une variable est un emplacement mémoire qui peut stocker une valeur ?", "vrai"},
+      {"Une variable est un emplacement mémoire qui peut stocker une valeur ?", "vrai"},
       {"Le jeu Street Fighter est un jeu de combat ?", "vrai"}
     };
   } else if (niveau_difficulte == "difficile") {
@@ -44,6 +57,16 @@ vector<pair<string, string>> create_questions(string niveau_difficulte) {
       {"Le théorème de Fermat-Wiles stipule qu'il n'existe pas de solutions entières à l'équation a^n + b^n = c^n pour n supérieur à 2 ?", "vrai"},
       {"Un langage de programmation interprété est traduit ligne par ligne lors de l'exécution ?", "vrai"},
       {"Le jeu Minecraft est un jeu en monde ouvert ?", "vrai"},
+      {"Une fonction est un bloc de code qui peut être appelé par son nom ?", "vrai"},
+      {"Une fonction est un bloc de code qui peut être appelé par son nom ?", "vrai"},
+      {"Une fonction est un bloc de code qui peut être appelé par son nom ?", "vrai"},
+      {"Une fonction est un bloc de code qui peut être appelé par son nom ?", "vrai"},
+      {"Une fonction est un bloc de code qui peut être appelé par son nom ?", "vrai"},
+      {"Une fonction est un bloc de code qui peut être appelé par son nom ?", "vrai"},
+      {"Une fonction est un bloc de code qui peut être appelé par son nom ?", "vrai"},
+      {"Une fonction est un bloc de code qui peut être appelé par son nom ?", "vrai"},
+      {"Une fonction est un bloc de code qui peut être appelé par son nom ?", "vrai"},
+      {"Une fonction est un bloc de code qui peut être appelé par son nom ?", "vrai"},
       {"Une fonction est un bloc de code qui peut être appelé par son nom ?", "vrai"},
       {"Le jeu Fortnite est un jeu de tir à la première personne ?", "vrai"}
     };
@@ -70,58 +93,58 @@ int qcm(string niveau_difficulte, vector<pair<string, string>> &questions_facile
 
     if(niveau_difficulte == "facile"){
         for(int i = 0; i < 6; i++){
-            questions[i] = questions_faciles[0];
+            questions[i] = questions_faciles.back();
             if (!questions_faciles.empty()) {
-                questions_faciles.erase(questions_faciles.begin()); // Supprimer le premier élément
+                questions_faciles.pop_back(); // Supprimer le premier élément
             }
         }
         for(int i = 6; i < 9; i++){
-            questions[i] = questions_moyennes[0];
+            questions[i] = questions_moyennes.back();
             if (!questions_moyennes.empty()) {
-                questions_moyennes.erase(questions_moyennes.begin()); // Supprimer le premier élément
+                questions_moyennes.pop_back(); // Supprimer le premier élément
             }
         }
-        questions[9] = questions_difficiles[0];
+        questions[9] = questions_difficiles.back();
         if (!questions_difficiles.empty()) {
-            questions_difficiles.erase(questions_difficiles.begin()); // Supprimer le premier élément
+            questions_difficiles.pop_back(); // Supprimer le premier élément
         }
     } // Remplire questions en supprimant les éléments dans les tableaux
     else if(niveau_difficulte == "moyen"){
         for(int i = 0; i < 6; i++){
-            questions[i] = questions_moyennes[0];
+            questions[i] = questions_moyennes.back();
             if (!questions_moyennes.empty()) {
-                questions_moyennes.erase(questions_moyennes.begin()); // Supprimer le premier élément
+                questions_moyennes.pop_back(); // Supprimer le premier élément
             }
         }
         for(int i = 6; i < 8; i++){
-            questions[i] = questions_faciles[0];
+            questions[i] = questions_faciles.back();
             if (!questions_faciles.empty()) {
-                questions_faciles.erase(questions_faciles.begin()); // Supprimer le premier élément
+                questions_faciles.pop_back(); // Supprimer le premier élément
             }
         }
         for(int i = 8; i < 10; i++){
-            questions[i] = questions_difficiles[0];
+            questions[i] = questions_difficiles.back();
             if (!questions_difficiles.empty()) {
-                questions_difficiles.erase(questions_difficiles.begin()); // Supprimer le premier élément
+                questions_difficiles.pop_back(); // Supprimer le premier élément
             }
         }
     }
     else{
         for(int i = 0; i < 6; i++){
-            questions[i] = questions_difficiles[0];
+            questions[i] = questions_difficiles.back();
             if (!questions_difficiles.empty()) {
-                questions_difficiles.erase(questions_difficiles.begin()); // Supprimer le premier élément
+                questions_difficiles.pop_back(); // Supprimer le premier élément
             }
         }
         for(int i = 6; i < 9; i++){
-            questions[i] = questions_moyennes[0];
+            questions[i] = questions_moyennes.back();
             if (!questions_moyennes.empty()) {
-                questions_moyennes.erase(questions_moyennes.begin()); // Supprimer le premier élément
+                questions_moyennes.pop_back(); // Supprimer le premier élément
             }
         }
-        questions[9] = questions_faciles[0];
+        questions[9] = questions_faciles.back();
         if (!questions_faciles.empty()) {
-            questions_faciles.erase(questions_faciles.begin()); // Supprimer le premier élément
+            questions_faciles.pop_back(); // Supprimer le premier élément
         }
     }
 
