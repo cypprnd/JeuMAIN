@@ -2,15 +2,9 @@
 
 ## Liste des taches à faire pour le code
 
-- Le WEC
-- L'année 5
-- Le QCM du partiel (enlever les questions un fois qu'elles ont été posées)
-- Refaire les dessin ASCII
-- Améliorer le jeu du TIS
 - Makefile
 - Warning (-Wall) et Valgrind
-- Surcharge d'opérateur (2)
-- Ajouter un niveau de hiérarchie (faire Polytech qui initilise le jeu et qui a tous les paramètres?)
+- Surcharge d'opérateur (1)
 - Mettre des commentaires
 - Faire les tests unitaires
 
