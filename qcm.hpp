@@ -161,13 +161,13 @@ int qcm(string niveau_difficulte, vector<pair<string, string>> &questions_facile
         string reponse;
         cin >> reponse;
         if (check_answer(reponse, question.second)) {
-        cout << "Correct !" << endl << endl;
-        score++;
+            cout << "Correct !" << endl << endl;
+            score++;
         } else {
-        cout << "Incorrect !" << endl << endl;
+            cout << "Incorrect !" << endl << endl;
         }
     }
     cout << "Votre note est : " << score*2 << "/20" << endl;
-    return score;
+    return 2*score;
 }
 

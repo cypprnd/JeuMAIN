@@ -10,7 +10,7 @@
 #include "jeu_memoire.hpp"
 #include "pierre_feuille_ciseau.hpp"
 #include "qcm.hpp"
-#include "jump_game.hpp"
+// #include "jump_game.hpp"
 
 // Fonction
 #include "afficher_txt.hpp"
@@ -18,8 +18,9 @@
 // Structure
 // #include "stats.hpp"
 
-class Personnage;  // Déclaration anticipée
-class Environnement;
+#include "personnage.hpp"
+
+// class Personnage;  // Déclaration anticipée
 
 class Evenement {
 protected:
@@ -125,20 +126,21 @@ public:
 
 };
 
-// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 class Rentree : public Evenement {
 public:
-    Rentree(const std::string& nom, const std::string& description): Evenement(nom, description){}
+    Rentree(const std::string& nom, const std::string& description, Personnage& perso1, Personnage& perso2): Evenement(nom, description), personne1(perso1), personne2(perso2) {}
 
     void executer(Stats& stats) override {}
 
     virtual ~Rentree() {}
+protected:
+    Personnage& personne1;
+    Personnage& personne2;
 };
 
 class RentreePremiereAnnee : public Rentree {
 public:
-    RentreePremiereAnnee(const std::string& nom, const std::string& description): Rentree(nom, description) {}
+    RentreePremiereAnnee(const std::string& nom, const std::string& description, Personnage& perso1, Personnage& perso2): Rentree(nom, description, perso1, perso2) {}
 
     // mettre en paramètre Tannier et Yves
 
@@ -146,11 +148,11 @@ public:
         (void)system("clear");
 
         afficherFichier("jussieu_ascii.txt");
-        sleep(4);
+        sleep(3);
         (void)system("clear");
 
         afficherFichier("bienvenue.txt");
-        sleep(5);
+        sleep(4);
         (void)system("clear");
 
         afficherFichier("logo_polytech.txt");
@@ -158,18 +160,16 @@ public:
         (void)system("clear");
 
         afficherFichier("aujourd'hui.txt");
-        sleep(5);
+        sleep(4);
         (void)system("clear");
 
         afficherFichier("meilleur_spe.txt");
-        sleep(5);
+        sleep(4);
         (void)system("clear");
 
         afficherFichier("main.txt");
         sleep(3);
         (void)system("clear");
-
-        // Aujourd'hui c'est la rentrée, c'est partie
 
         // Première Interaction
 
@@ -183,25 +183,24 @@ public:
         std::cin >> choix;
         
         if (choix == 1) {
-            // Tannier.parler();
+            personne1.parler(stats);
         }
 
         if (choix == 2) {
-            // Yves.parler();
+            personne2.parler(stats);
         }
 
         if (choix == 3) {
             std::cout << "Vous avez parler à personne durant la rentrée. " << std::endl << std::endl;
-            sleep(4);
-            std::cout << "Aller, c'est parti !!!" << std::endl << std::endl;
-            sleep(4);
-            std::cout << "Demain les cours commence, attention il peut y avoir des controles surprises." << std::endl << std::endl;
-            sleep(4);
-            std::cout << "Bonne chance" << std::endl << std::endl << std::endl << std::endl;
-            sleep(4);
+            sleep(2);
         }
 
-        // Aller c'est parti, bonne chance
+        std::cout << "Aller, c'est parti !!!" << std::endl << std::endl;
+        sleep(2);
+        std::cout << "Demain les cours commence, attention il peut y avoir des controles surprises." << std::endl << std::endl;
+        sleep(2);
+        std::cout << "Bonne chance" << std::endl << std::endl << std::endl << std::endl;
+        sleep(2);
     }
 };
 
@@ -210,9 +209,11 @@ private:
     int anneeEtudes;
 
 public:
-    AutreRentree(const std::string& nom, const std::string& description, int annee): Rentree(nom, description), anneeEtudes(annee) {}
+    AutreRentree(const std::string& nom, const std::string& description, int annee, Personnage& perso1, Personnage& perso2): Rentree(nom, description, perso1, perso2), anneeEtudes(annee) {}
 
     void executer(Stats& stats) override {
+        stats.reset();
+        (void)system("clear");
         afficherFichier("jussieu_ascii.txt");
         sleep(2);
         (void)system("clear");
@@ -221,9 +222,34 @@ public:
         sleep(2);
         (void)system("clear");
 
-        // Choix entre Tannier, Yves, faire la personne mistérieuse
+        std::cout << "Vous voyez un professeur et un élève. Que voulez-vous faire ?" << std::endl;
+        std::cout << "1. Parler au professeur" << std::endl;
+        std::cout << "2. Parler à un élève" << std::endl;
+        std::cout << "3. Faire la personne mystérieuse" << std::endl;
 
-        // Aller c'est parti, bonne chance
+        int choix;
+        std::cout << "Quelle est votre choix (1, 2 ou 3): ";
+        std::cin >> choix;
+        
+        if (choix == 1) {
+            personne1.parler(stats);
+        }
+
+        if (choix == 2) {
+            personne2.parler(stats);
+        }
+
+        if (choix == 3) {
+            std::cout << "Vous avez parler à personne durant la rentrée. " << std::endl << std::endl;
+            sleep(2);
+        }
+
+        std::cout << "Aller, c'est parti !!!" << std::endl << std::endl;
+        sleep(2);
+        std::cout << "Demain les cours commence, attention il peut y avoir des controles surprises." << std::endl << std::endl;
+        sleep(2);
+        std::cout << "Bonne chance" << std::endl << std::endl << std::endl << std::endl;
+        sleep(2);
     }
 };
 
@@ -310,16 +336,18 @@ class Vacances : public Evenement {
 }; 
 
 class Rencontre : public Evenement {
-    public:
-        Rencontre(Personnage perso) : Evenement("Rencontre", "Tu tombes sur quelqu'un que tu connais"), personne(perso) {}
+public:
+    Rencontre(Personnage& perso)
+        : Evenement("Rencontre", "Tu tombes sur quelqu'un que tu connais"), personne(perso) {}
 
-        void executer(Stats& stats) override {
-            personne.parler();
-            std::cout << "Vos nouvelles statistiques :" << std::endl << std::endl;
-            stats.afficher();
-            std::cout << std::endl << std::endl;
-        }
+    void executer(Stats& stats) override {
+        personne.parler(stats);
+        std::cout << "Vos nouvelles statistiques :" << std::endl << std::endl;
+        stats.afficher();
+        std::cout << std::endl << std::endl;
+    }
 
-    private:
-        Personnage personne;
+private:
+    Personnage& personne; // Utilisation d'une référence pour éviter le slicing
 };
+

@@ -7,10 +7,8 @@
 #include <cstdlib>
 #include <ctime>
 
-#include "evenement.hpp"
-
-#ifndef STATS_HPP
-#define STATS_HPP
+// #include "evenement.hpp"
+#include "stats.hpp"
 
 // Fonction pour attendre une entrée de l'utilisateur
 void attendreEntree() {
@@ -26,25 +24,17 @@ void afficherImage(const std::vector<std::string>& image) {
 }
 
 
-#endif // STATS_HPP
-
-
-
-#ifndef PERSONNAGE_HPP
-#define PERSONNAGE_HPP
-
-
 class Personnage {
 protected:
     std::string nom;
     std::string role;
-    int nb_rencontre;
+    mutable int nb_rencontre;
 
 public:
     Personnage(const std::string& nom, const std::string& role) : nom(nom), role(role), nb_rencontre(0) {}
 
     virtual void parler(Stats& stats) const {
-        std::cout << nom << " (" << role << ") : Bonjour !" << std::endl;
+        std::cout << "Bonjour je m'appelle " << nom << " (" << role << ")" << std::endl << std::endl;
     }
 
     std::string getNom() const { return nom; }
@@ -63,9 +53,11 @@ public:
         } else {
             std::cout << "Encore toi ? Haha, je vois que tu es motivé ! Continuons à travailler ensemble pour que tu sois au top." << std::endl;
         }
-        
+        nb_rencontre++;
         stats.reputation += 10;
-        stats.revision += 10*(1+nb_rencontre/10);
+        stats.revision += 10 + nb_rencontre;
+        if(stats.reputation > 100) stats.reputation = 100;
+        if(stats.revision > 100) stats.energie = 100;
     }
 };
 
@@ -74,10 +66,15 @@ public:
     Eleve(const std::string& nom) : Personnage(nom, "Élève") {}
 
     void parler(Stats& stats) const override {
-        if(nb_rencontre == 0) std::cout << "Salut, comment ça va? Je m'appelle " << nom << std::endl;
-        
+        if(nb_rencontre == 0) std::cout << "Salut, comment ça va? Je m'appelle " << nom << std::endl << std::endl;
+        else std::cout << "Commmen on se retrouve, c'est un plaisir de te voir" << std::endl << std::endl;
+
+        nb_rencontre++;
         stats.reputation += 10;
-        stats.energie += 10*(1+nb_rencontre/10);
+        stats.energie += 10 + nb_rencontre;
+        if(stats.reputation > 100) stats.reputation = 100;
+        if(stats.energie > 100) stats.energie = 100;
+        
     }
 };
 
@@ -89,7 +86,7 @@ public:
         if (nb_rencontre == 0) {
             std::cout << "Salut, comment ça va ? Je m'appelle Yves, je suis brésilien (il ment) !" << std::endl;
         } else if(nb_rencontre == 1) {
-            std::cout << "Oh salut, commnet ça va ? Hier je sui aller prank un streamer. " << std::endl;
+            std::cout << "Oh salut, commnet ça va ? Hier je suis allé prank un streamer. " << std::endl;
         }else if (nb_rencontre == 2) {
             std::cout << "Ah, c'est quand ton 1v1 contre Thierry, tu vas le laver c'est sur." << std::endl;
         }else if (nb_rencontre == 3) {
@@ -99,8 +96,11 @@ public:
         }else {
             std::cout << "Encore encore toi, mais on se voit tout le temps, on est connecté" << std::endl;
         }
+        nb_rencontre++;
         stats.reputation += 10;
-        stats.energie += 10 * (1 + nb_rencontre / 10);
+        stats.energie += 10 + nb_rencontre;
+        if(stats.reputation > 100) stats.reputation = 100;
+        if(stats.energie > 100) stats.energie = 100;
     }
 };
 
@@ -116,17 +116,11 @@ public:
         } else {
             std::cout << "Toujours toi ! Haha, je crois qu'on va finir par devenir une équipe imbattable pour les jeux et les révisions." << std::endl;
         }
+        nb_rencontre++;
         stats.reputation += 10;
-        stats.energie += 10 * (1 + nb_rencontre / 10);
+        stats.revision += 10 + nb_rencontre;
+        if(stats.reputation > 100) stats.reputation = 100;
+        if(stats.revision > 100) stats.energie = 100;
     }
 };
-
-
-
-
-
-#endif // PERSONNAGE_HPP
-
-//#ifndef EVENEMENT_HPP
-//#define EVENEMENT_HPP
 

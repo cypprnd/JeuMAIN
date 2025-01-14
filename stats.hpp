@@ -33,4 +33,9 @@ struct Stats {
         else difficulte = "difficile";
     }
 
+    void reset(){
+        note = -1;
+        energie = 100;
+    }
+
 };
