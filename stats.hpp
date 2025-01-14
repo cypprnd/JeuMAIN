@@ -39,3 +39,13 @@ struct Stats {
     }
 
 };
+
+Stats& operator+=(Stats& stats, int val) {
+    stats.energie += val;
+    stats.revision += val;
+    stats.reputation += val;
+    if(stats.energie > 100) stats.energie = 100;
+    if(stats.revision > 100) stats.revision = 100;
+    if(stats.reputation > 100) stats.reputation = 100;
+    return stats;
+}

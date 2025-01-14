@@ -10,17 +10,11 @@
 #include "jeu_memoire.hpp"
 #include "pierre_feuille_ciseau.hpp"
 #include "qcm.hpp"
-// #include "jump_game.hpp"
 
 // Fonction
 #include "afficher_txt.hpp"
 
-// Structure
-// #include "stats.hpp"
-
 #include "personnage.hpp"
-
-// class Personnage;  // Déclaration anticipée
 
 class Evenement {
 protected:
@@ -106,24 +100,39 @@ private:
     vector<pair<string, string>> questions_difficiles;
 };
 
-class WEC : public Evenement { // A faire
+class Projet : public Evenement {
 public:
-    WEC() : Evenement("WEC", "description ") {}
+    Projet() : Evenement("Projet","Un projet important pour évaluer vos compétences et votre investissement."){}
 
     void executer(Stats& stats) override {
-    
+        std::cout << "Vous avez bien travailler et vous vous êtes sociabilisé(e) donc vous obtenez une bonne note au projet" << std::endl << std::endl;
+        
+        int resultat; // Note aléatoire entre 0 et 20
+        resultat = (stats.reputation + stats.revision)*2/10;
+        if(resultat > 20) resultat = 20;
+
+        if(stats.reputation + stats.revision >= 60){
+            std::cout << "Vous n'avez pas assez travailler et vous devez plus vous sociabiliser pour avoir une meilleure note au projet" << std::endl << std::endl;
+        }
+        else{
+
+        }
+
+        if(stats.note == -1){
+            stats.note = resultat;
+        }
+        else{
+            stats.note = (4*stats.note + 2*resultat) /6; // le partiel compte beaucoup dans la moyenne
+        }
+        stats.energie -= 20;
+        if(stats.energie < 0) stats.energie = 0;
+
+        std::cout << "Vous avez obtenu " << resultat << "/20." << std::endl << "Nouvelle note moyenne : " << stats.note << "/20." << std::endl;
+        if (stats.energie <= 0) {
+            stats.energie = 0;
+            std::cout << "Attention, votre énergie est à 0." << std::endl;
+        }
     }
-
-};
-
-class TIS : public Evenement {
-public:
-    TIS() : Evenement("TIS", "Vous participez au tournoi inter-spécialités") {}
-
-    void executer(Stats& stats) override {
-        // jumpGame(stats);
-    }
-
 };
 
 class Rentree : public Evenement {
@@ -183,17 +192,24 @@ public:
         std::cin >> choix;
         
         if (choix == 1) {
-            personne1.parler(stats);
+            std::cout << personne1;
+            stats.reputation += 10;
         }
 
         if (choix == 2) {
-            personne2.parler(stats);
+            std::cout << personne2;
+            stats.reputation += 5;
         }
 
         if (choix == 3) {
             std::cout << "Vous avez parler à personne durant la rentrée. " << std::endl << std::endl;
             sleep(2);
         }
+
+        if(stats.reputation > 100) stats.reputation = 100;
+        std::cout << "Vos nouvelles statistiques :" << std::endl << std::endl;
+        stats.afficher();
+        std::cout << std::endl << std::endl;
 
         std::cout << "Aller, c'est parti !!!" << std::endl << std::endl;
         sleep(2);
@@ -233,16 +249,24 @@ public:
         
         if (choix == 1) {
             personne1.parler(stats);
+            stats.reputation += 10;
         }
 
         if (choix == 2) {
             personne2.parler(stats);
+            stats.reputation += 5;
+
         }
 
         if (choix == 3) {
             std::cout << "Vous avez parler à personne durant la rentrée. " << std::endl << std::endl;
             sleep(2);
         }
+
+        if(stats.reputation > 100) stats.reputation = 100;
+        std::cout << "Vos nouvelles statistiques :" << std::endl << std::endl;
+        stats.afficher();
+        std::cout << std::endl << std::endl;
 
         std::cout << "Aller, c'est parti !!!" << std::endl << std::endl;
         sleep(2);
@@ -297,7 +321,7 @@ class Ski : public Evenement {
         Ski() : Evenement("Ski", "Vous partez au ski avec Polytech.") {}
     
     void executer(Stats& stats) override {
-
+        // mettrele jeu du ski
     }
 }; 
 
@@ -341,7 +365,9 @@ public:
         : Evenement("Rencontre", "Tu tombes sur quelqu'un que tu connais"), personne(perso) {}
 
     void executer(Stats& stats) override {
-        personne.parler(stats);
+        std::cout << personne;
+        int nb_rencontre = personne.get_rencontre();
+        stats += 7 + nb_rencontre;
         std::cout << "Vos nouvelles statistiques :" << std::endl << std::endl;
         stats.afficher();
         std::cout << std::endl << std::endl;

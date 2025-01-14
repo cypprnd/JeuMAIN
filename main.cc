@@ -4,7 +4,6 @@
 #include <cstdlib>
 #include <ctime>
 
-//#include "personnage.hpp"
 #include "evenement.hpp"
 
 void fin(){
@@ -53,10 +52,11 @@ void randomevent(std::vector<Evenement*> evenements_aleatoires, Stats stats){
         }
     }
 }
+
 int main() {
     srand(static_cast<unsigned int>(time(nullptr))); // Initialisation de la graine aléatoire
 
-    // Initialisation des statistiques
+    // Initialisation
     Stats stats;
     Alice Alice;
     Yves Yves;
@@ -65,8 +65,6 @@ int main() {
     Rencontre rencontreYves(Yves);
     Rencontre rencontreAlice(Alice);
     Rencontre rencontreProf(Tannier);
-    // rencontreYves.executer(stats);
-    // sleep(3);
 
     // Liste d'événements aléatoires ----------------------------------------------
     std::vector<Evenement*> evenements_aleatoires = {
@@ -82,20 +80,16 @@ int main() {
         &rencontreYves,
         &rencontreAlice,
         &rencontreProf,
-        // new Rencontre(Yves),
-        // new Rencontre(Alice),
-        // new Rencontre(Tannier),
     };
 
     std::vector<Evenement*> evenements_recurrents = {
         new RentreePremiereAnnee("Rentree", "C'est la rentrée à Polytech Sorbonne ! Vous allez découvrir vos nouveaux camarades et professeurs.", Tannier, Yves), //Evenement 0
-        new Partiel(), // QCM pour le gros controle
+        new Partiel(),
         new Vacances(),
-        // new WEC(),
         new Ski(),
-        // new TIS(),
         new AutreRentree("Rentree", "C'est votre rentrée à Polytech en 2 année ! Vous allez retrouver vos nouveaux camarades et professeurs.", 2, Tannier, Yves),
         new AutreRentree("Rentree", "C'est votre rentrée à Polytech en 3 année ! Vous allez retrouver vos nouveaux camarades et professeurs.", 3, Tannier, Yves),
+        new Projet(),
     };
 
     // Bienvenue
@@ -137,6 +131,7 @@ int main() {
             randomevent(evenements_aleatoires, stats);
             //Partiel fin de l'année
             evenements_recurrents[1]->executer(stats); //Partiel
+            evenements_recurrents[6]->executer(stats); //Projet
 
             // Validation de l'année
             if (stats.note >= 10) {
@@ -171,6 +166,7 @@ int main() {
 
             //Partiel fin de l'année
             evenements_recurrents[1]->executer(stats); //Partiel
+            evenements_recurrents[6]->executer(stats); //Projet
 
 
             // Validation de l'année

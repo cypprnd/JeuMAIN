@@ -39,6 +39,8 @@ public:
 
     std::string getNom() const { return nom; }
     std::string getRole() const { return role; }
+    int get_rencontre() const { return nb_rencontre; }
+    void set_rencontre(int nb) { nb_rencontre = nb; }
 };
 
 class Professeur : public Personnage {
@@ -54,10 +56,6 @@ public:
             std::cout << "Encore toi ? Haha, je vois que tu es motivé ! Continuons à travailler ensemble pour que tu sois au top." << std::endl;
         }
         nb_rencontre++;
-        stats.reputation += 10;
-        stats.revision += 10 + nb_rencontre;
-        if(stats.reputation > 100) stats.reputation = 100;
-        if(stats.revision > 100) stats.energie = 100;
     }
 };
 
@@ -68,13 +66,7 @@ public:
     void parler(Stats& stats) const override {
         if(nb_rencontre == 0) std::cout << "Salut, comment ça va? Je m'appelle " << nom << std::endl << std::endl;
         else std::cout << "Commmen on se retrouve, c'est un plaisir de te voir" << std::endl << std::endl;
-
         nb_rencontre++;
-        stats.reputation += 10;
-        stats.energie += 10 + nb_rencontre;
-        if(stats.reputation > 100) stats.reputation = 100;
-        if(stats.energie > 100) stats.energie = 100;
-        
     }
 };
 
@@ -97,10 +89,6 @@ public:
             std::cout << "Encore encore toi, mais on se voit tout le temps, on est connecté" << std::endl;
         }
         nb_rencontre++;
-        stats.reputation += 10;
-        stats.energie += 10 + nb_rencontre;
-        if(stats.reputation > 100) stats.reputation = 100;
-        if(stats.energie > 100) stats.energie = 100;
     }
 };
 
@@ -117,10 +105,12 @@ public:
             std::cout << "Toujours toi ! Haha, je crois qu'on va finir par devenir une équipe imbattable pour les jeux et les révisions." << std::endl;
         }
         nb_rencontre++;
-        stats.reputation += 10;
-        stats.revision += 10 + nb_rencontre;
-        if(stats.reputation > 100) stats.reputation = 100;
-        if(stats.revision > 100) stats.energie = 100;
     }
 };
 
+// Surcharge de l'opérateur <<
+std::ostream& operator<<(std::ostream& os, Personnage& personnage) {
+    Stats stats; // Création d'un objet Stats pour la méthode parler
+    personnage.parler(stats); // Appel de parler
+    return os;
+}
