@@ -6,10 +6,10 @@
 #include <ctime>
 
 // Jeux
-#include "calcul_mental.hpp"
-#include "jeu_memoire.hpp"
-#include "pierre_feuille_ciseau.hpp"
-#include "qcm.hpp"
+#include "../JeuMAIN/mini_jeu/calcul_mental.hpp"
+#include "../JeuMAIN/mini_jeu/jeu_memoire.hpp"
+#include "../JeuMAIN/mini_jeu/pierre_feuille_ciseau.hpp"
+#include "../JeuMAIN/mini_jeu/qcm.hpp"
 
 // Fonction
 #include "afficher_txt.hpp"
@@ -156,27 +156,27 @@ public:
     void executer(Stats& stats) override {
         (void)system("clear");
 
-        afficherFichier("jussieu_ascii.txt");
+        afficherFichier("../JeuMAIN/affichage/jussieu_ascii.txt");
         sleep(3);
         (void)system("clear");
 
-        afficherFichier("bienvenue.txt");
+        afficherFichier("../JeuMAIN/affichage/bienvenue.txt");
         sleep(4);
         (void)system("clear");
 
-        afficherFichier("logo_polytech.txt");
+        afficherFichier("../JeuMAIN/affichage/logo_polytech.txt");
         sleep(3);
         (void)system("clear");
 
-        afficherFichier("aujourd'hui.txt");
+        afficherFichier("../JeuMAIN/affichage/aujourd'hui.txt");
         sleep(4);
         (void)system("clear");
 
-        afficherFichier("meilleur_spe.txt");
+        afficherFichier("../JeuMAIN/affichage/meilleur_spe.txt");
         sleep(4);
         (void)system("clear");
 
-        afficherFichier("main.txt");
+        afficherFichier("../JeuMAIN/affichage/main.txt");
         sleep(3);
         (void)system("clear");
 
@@ -230,11 +230,11 @@ public:
     void executer(Stats& stats) override {
         stats.reset();
         (void)system("clear");
-        afficherFichier("jussieu_ascii.txt");
+        afficherFichier("../JeuMAIN/affichage/jussieu_ascii.txt");
         sleep(2);
         (void)system("clear");
 
-        afficherFichier("n_annee.txt");
+        afficherFichier("../JeuMAIN/affichage/n_annee.txt");
         sleep(2);
         (void)system("clear");
 
