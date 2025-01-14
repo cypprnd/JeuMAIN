@@ -3,8 +3,7 @@
 ## Liste des taches à faire pour le code
 
 - Makefile
-- Warning (-Wall) et Valgrind
-- Surcharge d'opérateur (1)
+- Valgrind
 - Mettre des commentaires
 - Faire les tests unitaires
 
