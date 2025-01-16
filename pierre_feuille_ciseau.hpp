@@ -3,6 +3,10 @@
 #include <ctime>
 #include <unistd.h>
 
+<<<<<<< HEAD
+#include "saisie_int.hpp"
+=======
+>>>>>>> d5c83020f9a2a25606ea157bdaa4a4326faccb32
 
 using namespace std;
 
@@ -37,8 +41,18 @@ int PFC() {
     while (score < 5 && profScore < 5) {
         int player, prof;
 
+<<<<<<< HEAD
+        cout << endl << "Votre choix (0: Pierre, 1: Feuille, 2: Ciseaux) : ";
+
+        bool saisie = false;
+
+        while (saisie == false) {
+            saisie = saisirEntier(player);
+        }
+=======
         cout << "\nVotre choix (0: Pierre, 1: Feuille, 2: Ciseaux) : ";
         cin >> player;
+>>>>>>> d5c83020f9a2a25606ea157bdaa4a4326faccb32
 
         // Validation de l'entrée utilisateur
         if (player < 0 || player > 2) {

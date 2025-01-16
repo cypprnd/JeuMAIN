@@ -5,6 +5,11 @@
 #include <vector>
 #include <string>
 
+<<<<<<< HEAD
+#include "saisie_int.hpp"
+
+=======
+>>>>>>> d5c83020f9a2a25606ea157bdaa4a4326faccb32
 using namespace std;
 
 /* Jeu de mémoire
@@ -51,7 +56,14 @@ int jeu_memoire(string niveau) {
   // Saisie de la séquence par l'utilisateur
   cout << "Saisissez un nombre de la séquence : ";
   for (i = 0; i < n; i++) {
+<<<<<<< HEAD
+    bool saisie = false;
+    while (saisie == false) {
+      saisie = saisirEntier(nb);
+    }
+=======
     cin >> nb;
+>>>>>>> d5c83020f9a2a25606ea157bdaa4a4326faccb32
     seq_utilisateur.push_back(nb);
   }
 
