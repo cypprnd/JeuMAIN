@@ -40,7 +40,11 @@ public:
     std::string getNom() const { return nom; }
     std::string getRole() const { return role; }
     int get_rencontre() const { return nb_rencontre; }
+<<<<<<< HEAD
+    // void set_rencontre(int nb) { nb_rencontre = nb; }
+=======
     void set_rencontre(int nb) { nb_rencontre = nb; }
+>>>>>>> d5c83020f9a2a25606ea157bdaa4a4326faccb32
 };
 
 class Professeur : public Personnage {

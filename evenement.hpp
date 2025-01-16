@@ -10,9 +10,17 @@
 #include "../JeuMAIN/mini_jeu/jeu_memoire.hpp"
 #include "../JeuMAIN/mini_jeu/pierre_feuille_ciseau.hpp"
 #include "../JeuMAIN/mini_jeu/qcm.hpp"
+<<<<<<< HEAD
+#include "../JeuMAIN/mini_jeu/ski/ski.cc"
 
 // Fonction
 #include "afficher_txt.hpp"
+#include "../JeuMAIN/mini_jeu/saisie_int.hpp"
+=======
+
+// Fonction
+#include "afficher_txt.hpp"
+>>>>>>> d5c83020f9a2a25606ea157bdaa4a4326faccb32
 
 #include "personnage.hpp"
 
@@ -105,7 +113,10 @@ public:
     Projet() : Evenement("Projet","Un projet important pour évaluer vos compétences et votre investissement."){}
 
     void executer(Stats& stats) override {
+<<<<<<< HEAD
+=======
         std::cout << "Vous avez bien travailler et vous vous êtes sociabilisé(e) donc vous obtenez une bonne note au projet" << std::endl << std::endl;
+>>>>>>> d5c83020f9a2a25606ea157bdaa4a4326faccb32
         
         int resultat; // Note aléatoire entre 0 et 20
         resultat = (stats.reputation + stats.revision)*2/10;
@@ -115,7 +126,11 @@ public:
             std::cout << "Vous n'avez pas assez travailler et vous devez plus vous sociabiliser pour avoir une meilleure note au projet" << std::endl << std::endl;
         }
         else{
+<<<<<<< HEAD
+            std::cout << "Vous avez bien travailler et vous vous êtes sociabilisé(e) donc vous obtenez une bonne note au projet." << std::endl << std::endl;
+=======
 
+>>>>>>> d5c83020f9a2a25606ea157bdaa4a4326faccb32
         }
 
         if(stats.note == -1){
@@ -151,8 +166,11 @@ class RentreePremiereAnnee : public Rentree {
 public:
     RentreePremiereAnnee(const std::string& nom, const std::string& description, Personnage& perso1, Personnage& perso2): Rentree(nom, description, perso1, perso2) {}
 
+<<<<<<< HEAD
+=======
     // mettre en paramètre Tannier et Yves
 
+>>>>>>> d5c83020f9a2a25606ea157bdaa4a4326faccb32
     void executer(Stats& stats) override {
         (void)system("clear");
 
@@ -281,7 +299,11 @@ public:
 //On gagne de la revision mais perd un peu d'énergie
 class Reviser : public Evenement {
     public:
+<<<<<<< HEAD
+        Reviser() : Evenement("Reviser","Vous avez decider de réviser." ) {}
+=======
         Reviser () : Evenement("Reviser","Vous avez decider de réviser." ) {}
+>>>>>>> d5c83020f9a2a25606ea157bdaa4a4326faccb32
     
     void executer(Stats& stats) override {
         std::cout << getDescription() << std::endl;
@@ -321,7 +343,11 @@ class Ski : public Evenement {
         Ski() : Evenement("Ski", "Vous partez au ski avec Polytech.") {}
     
     void executer(Stats& stats) override {
+<<<<<<< HEAD
+        jeu_ski();
+=======
         // mettrele jeu du ski
+>>>>>>> d5c83020f9a2a25606ea157bdaa4a4326faccb32
     }
 }; 
 
@@ -362,10 +388,17 @@ class Vacances : public Evenement {
 class Rencontre : public Evenement {
 public:
     Rencontre(Personnage& perso)
+<<<<<<< HEAD
+        : Evenement("Rencontre " + perso.getNom(), "Tu tombes sur quelqu'un que tu connais"), personne(perso) {}
+
+    void executer(Stats& stats) override {
+        std::cout << endl << personne << endl << endl << endl;
+=======
         : Evenement("Rencontre", "Tu tombes sur quelqu'un que tu connais"), personne(perso) {}
 
     void executer(Stats& stats) override {
         std::cout << personne;
+>>>>>>> d5c83020f9a2a25606ea157bdaa4a4326faccb32
         int nb_rencontre = personne.get_rencontre();
         stats += 7 + nb_rencontre;
         std::cout << "Vos nouvelles statistiques :" << std::endl << std::endl;
