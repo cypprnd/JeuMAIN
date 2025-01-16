@@ -5,11 +5,8 @@
 #include <string>
 #include <unistd.h>
 
-<<<<<<< HEAD
 #include "saisie_int.hpp"
 
-=======
->>>>>>> d5c83020f9a2a25606ea157bdaa4a4326faccb32
 using namespace std;
 using namespace std::chrono;
 
@@ -24,7 +21,6 @@ int calculMental(string niveau) {
 
     int nombreQuestions = 10; // Nombre de questions
     int score = 0; // Score de l'utilisateur
-<<<<<<< HEAD
     const int delaiMax = 6; // Temps maximum pour répondre en secondes
 
     srand(static_cast<unsigned int>(time(0))); // Initialisation de la graine pour les nombres aléatoires
@@ -43,17 +39,6 @@ int calculMental(string niveau) {
     sleep(1);
     cout << "C'est partie !!!!" << endl << endl;
     sleep(1);
-=======
-    const int delaiMax = 3; // Temps maximum pour répondre en secondes
-
-    srand(static_cast<unsigned int>(time(0))); // Initialisation de la graine pour les nombres aléatoires
-
-    cout << "Bienvenue au controle de mathématiques !" << endl;    
-    cout << endl << "Vous allez répondre à " << nombreQuestions << " questions de calcul mental." << endl;
-    sleep(5);
-
-    cout << "Vous avez " << delaiMax << " secondes pour répondre à chaque question." << endl;
->>>>>>> d5c83020f9a2a25606ea157bdaa4a4326faccb32
 
     for (int i = 0; i < nombreQuestions; ++i) {
         int a, b, reponseUtilisateur, resultat;
@@ -85,12 +70,6 @@ int calculMental(string niveau) {
                 b = rand() % 20 + 1; // Limiter le second opérande pour les multiplications
                 resultat = a * b;
             }
-<<<<<<< HEAD
-=======
-        } else {
-            cout << "Niveau invalide. Veuillez entrer 'f', 'm' ou 'd'.\n";
-            return 0; // modifier --------------------------------------------------------------------------------------
->>>>>>> d5c83020f9a2a25606ea157bdaa4a4326faccb32
         }
 
         // Poser la question
@@ -100,17 +79,10 @@ int calculMental(string niveau) {
         auto debut = steady_clock::now();
         bool tempsEcoule = false;
 
-<<<<<<< HEAD
         bool saisie = false;
 
         while (saisie == false) {
             saisie = saisirEntier(reponseUtilisateur);
-=======
-        while (true) {
-            if (cin >> reponseUtilisateur) {
-                break;
-            }
->>>>>>> d5c83020f9a2a25606ea157bdaa4a4326faccb32
             auto maintenant = steady_clock::now();
             auto duree = duration_cast<seconds>(maintenant - debut).count();
             if (duree > delaiMax) {
@@ -142,10 +114,4 @@ int calculMental(string niveau) {
     }
 
     return 2*score;
-<<<<<<< HEAD
 }
-=======
-}
-
-
->>>>>>> d5c83020f9a2a25606ea157bdaa4a4326faccb32

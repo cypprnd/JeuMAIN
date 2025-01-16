@@ -6,11 +6,8 @@
 
 #include "evenement.hpp"
 
-<<<<<<< HEAD
 // g++ main.cc -Wall -o main -lncurses -lsfml-graphics -lsfml-window -lsfml-system
 
-=======
->>>>>>> d5c83020f9a2a25606ea157bdaa4a4326faccb32
 void fin(){
     std::string ligneSeparator = "=======================================================================";
     std::string titre = "MERCI D'AVOIR JOUE A NOTRE JEU !";
