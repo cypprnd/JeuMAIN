@@ -12,17 +12,9 @@
 
 // Fonction pour attendre une entrée de l'utilisateur
 void attendreEntree() {
-    //std::cout << "\nAppuyez sur Entrée pour continuer...";
+    std::cout << " ";
     std::cin.ignore();
 }
-
-// Fonction pour afficher une image ASCII
-void afficherImage(const std::vector<std::string>& image) {
-    for (const std::string& ligne : image) {
-        std::cout << ligne << "\n";
-    }
-}
-
 
 class Personnage {
 protected:
