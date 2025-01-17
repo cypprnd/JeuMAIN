@@ -146,14 +146,14 @@ int main() {
             //Partiel fin de l'année
             evenements_recurrents[1]->executer(stats); //Partiel
             evenements_recurrents[6]->executer(stats); //Projet
+            sleep(3);
 
             stats.maj_dif();
 
             // Validation de l'année
             if (stats.note >= 10) {
                 std::cout << std::endl << "Félicitations ! Vous avez validé votre année avec une note de " << stats.note << "/20 !" << std::endl << std::endl;
-                std::cout << std::endl << std::endl << "Appuiez sur Entrée Pour passer à l'année suivante." << std::endl << std::endl;
-                attendreEntree();
+                sleep(7);
             } else {
                 std::cout << std::endl << "Dommage... Vous n'avez pas validé votre année. Votre note finale est de " << stats.note << "/20." << std::endl;
                 sleep(7);
@@ -190,6 +190,7 @@ int main() {
             //Partiel fin de l'année
             evenements_recurrents[1]->executer(stats); //Partiel
             evenements_recurrents[6]->executer(stats); //Projet
+            sleep(3);
 
             stats.maj_dif();
 
@@ -197,8 +198,7 @@ int main() {
             // Validation de l'année
             if (stats.note >= 10) {
                 std::cout << std::endl << "Félicitations ! Vous avez validé votre année avec une note de " << stats.note << "/20 !" << std::endl;
-                std::cout << std::endl << std::endl << "Appuiez sur Entrée Pour passer à l'année suivante." << std::endl << std::endl;
-                attendreEntree();
+                sleep(7);
             } else {
                 std::cout  << std::endl<< "Dommage... Vous n'avez pas validé votre année. Votre note finale est de " << stats.note << "/20." << std::endl;
                 sleep(7);
