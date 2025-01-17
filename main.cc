@@ -101,17 +101,17 @@ int main() {
     sleep(2);
     std::cout << "Le but du jeu est d'optenir son diplome au bout des 3 ans en ayant au moins 10 de moyenne." << std::endl << std::endl;
     sleep(5);
-    std::cout << "Pour cela vous allez des différents choix qui vous menerons ou non vers cet objectif." << std::endl << std::endl;
+    std::cout << "Pour cela vous allez avoir différents choix qui vous menerons ou non vers cet objectif." << std::endl << std::endl;
     sleep(5);
     std::cout << "BONNE CHANCE !!!!!!" << std::endl << std::endl;
     sleep(3);
 
     for(int i = 0; i < 3; i++){
 
-        std::cout << "Voici vos statistiques pour commencer le jeux:" << std::endl << std::endl;
+        std::cout << "Voici vos statistiques pour commencer le jeu:" << std::endl << std::endl;
         // sleep(3);
         stats.afficher();
-        std::cout << std::endl << std::endl << "Appuiez sur Entrée une fois que vous vous voulez commencer le jeu." << std::endl << std::endl;
+        std::cout << std::endl << std::endl << "Appuiez sur Entrée une fois que vous voulez commencer le jeu." << std::endl << std::endl;
         attendreEntree();
 
 

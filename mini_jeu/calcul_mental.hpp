@@ -37,7 +37,7 @@ int calculMental(string niveau) {
     sleep(1);
     cout << 1 << endl;
     sleep(1);
-    cout << "C'est partie !!!!" << endl << endl;
+    cout << "C'est parti !!!!" << endl << endl;
     sleep(1);
 
     for (int i = 0; i < nombreQuestions; ++i) {

@@ -201,7 +201,7 @@ public:
         }
 
         if (choix == 3) {
-            std::cout << "Vous avez parler à personne durant la rentrée. " << std::endl << std::endl;
+            std::cout << "Vous n'avez parler à personne durant la rentrée. " << std::endl << std::endl;
             sleep(2);
         }
 
@@ -210,9 +210,9 @@ public:
         stats.afficher();
         std::cout << std::endl << std::endl;
 
-        std::cout << "Aller, c'est parti !!!" << std::endl << std::endl;
+        std::cout << "Allez, c'est parti !!!" << std::endl << std::endl;
         sleep(2);
-        std::cout << "Demain les cours commence, attention il peut y avoir des controles surprises." << std::endl << std::endl;
+        std::cout << "Demain les cours commencent, attention il peut y avoir des controles surprises." << std::endl << std::endl;
         sleep(2);
         std::cout << "Bonne chance" << std::endl << std::endl << std::endl << std::endl;
         sleep(2);

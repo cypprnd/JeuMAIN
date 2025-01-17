@@ -80,7 +80,7 @@ int PFC() {
         score = 20;
     }
     else
-        cout << "\n Vous n'avez pas fait le poids !" << endl << "Vous avez obtenue la note de " << score << "/20";
+        cout << "\n Vous n'avez pas fait le poids !" << endl << "Vous avez obtenu la note de " << score << "/20";
         
     return score;
 }

@@ -49,7 +49,7 @@ public:
 
     void parler(Stats& stats) const override {
         if (nb_rencontre == 0) {
-            std::cout << "Bonjour, je suis " << nom << ", et je suis passionné(e) par l'enseignement ! N'hésite pas à venir discuter avec moi pour en savoir plus sur ta spécialité." << std::endl;
+            std::cout << "Bonjour, je suis " << nom << ", et je suis passionné par l'enseignement ! N'hésite pas à venir discuter avec moi pour en savoir plus sur ta spécialité." << std::endl;
         } else if (nb_rencontre < 3) {
             std::cout << "Ravie de te revoir ! As-tu réfléchi à ta stratégie pour les révisions ? Je peux te donner quelques conseils." << std::endl;
         } else {
@@ -65,7 +65,7 @@ public:
 
     void parler(Stats& stats) const override {
         if(nb_rencontre == 0) std::cout << "Salut, comment ça va? Je m'appelle " << nom << std::endl << std::endl;
-        else std::cout << "Commmen on se retrouve, c'est un plaisir de te voir" << std::endl << std::endl;
+        else std::cout << "Commment on se retrouve, c'est un plaisir de te voir" << std::endl << std::endl;
         nb_rencontre++;
     }
 };
@@ -78,7 +78,7 @@ public:
         if (nb_rencontre == 0) {
             std::cout << "Salut, comment ça va ? Je m'appelle Yves, je suis brésilien (il ment) !" << std::endl;
         } else if(nb_rencontre == 1) {
-            std::cout << "Oh salut, commnet ça va ? Hier je suis allé prank un streamer. " << std::endl;
+            std::cout << "Oh salut, comment ça va ? Hier je suis allé prank un streamer. " << std::endl;
         }else if (nb_rencontre == 2) {
             std::cout << "Ah, c'est quand ton 1v1 contre Thierry, tu vas le laver c'est sur." << std::endl;
         }else if (nb_rencontre == 3) {
