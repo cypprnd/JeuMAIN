@@ -76,11 +76,11 @@ int PFC() {
 
     // Déterminer le vainqueur final
     if (score == 5){
-        cout << "\nFelicitations ! l'élève à dépasser le maitre" << endl << "Vous avez obtenu la note de 20/20 !" << endl;
+        cout << endl << "Felicitations ! l'élève à dépasser le maitre" << endl << "Vous avez obtenu la note de 20/20 !" << endl;
         score = 20;
     }
     else
-        cout << "\n Vous n'avez pas fait le poids !" << endl << "Vous avez obtenu la note de " << score << "/20";
+        cout << endl << "Vous n'avez pas fait le poids !" << endl << "Vous avez obtenu la note de " << score << "/20";
         
     return score;
 }
