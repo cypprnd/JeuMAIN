@@ -28,4 +28,21 @@ bool saisirEntier(int &n)
     return true;
 }
 
+bool saisirEntierMinMax(int &n, int min, int max){
+    while(!(cin >> n)|| (n < min || n > max)){
+        if(cin.eof()){
+            return false;
+        }
+        else if(cin.fail()){
+            cout << "Entrée invalide ! Recommencez" << endl;
+            cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+        else{
+            cout << "Entrée incorrecte ! Recommencez" << endl;
+        }
+    }
+    return true;
+}
+
 #endif // MATH_HPP_INCLUDED
