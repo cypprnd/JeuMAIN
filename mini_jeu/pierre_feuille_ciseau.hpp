@@ -71,7 +71,7 @@ int PFC() {
         }
 
         // Afficher le score
-        cout << "Score - Vous: " << score << " | Prof: " << profScore << endl;
+        cout << "Score - Vous: " << score << " | Prof: " << profScore << endl << endl;
     }
 
     // Déterminer le vainqueur final
