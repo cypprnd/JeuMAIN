@@ -279,7 +279,7 @@ public:
 
         std::cout << "Aller, c'est parti !!!" << std::endl << std::endl;
         sleep(2);
-        std::cout << "Demain les cours commence, attention il peut y avoir des controles surprises." << std::endl << std::endl;
+        std::cout << "Demain les cours commencent, attention il peut y avoir des controles surprises." << std::endl << std::endl;
         sleep(2);
         std::cout << "Bonne chance" << std::endl << std::endl << std::endl << std::endl;
         sleep(2);
