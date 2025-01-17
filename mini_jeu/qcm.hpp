@@ -95,37 +95,37 @@ int qcm(string niveau_difficulte, vector<pair<string, string>> &questions_facile
         for(int i = 0; i < 6; i++){
             questions[i] = questions_faciles.back();
             if (!questions_faciles.empty()) {
-                questions_faciles.pop_back(); // Supprimer le premier élément
+                questions_faciles.pop_back(); // Supprimer le dernier élément
             }
         }
         for(int i = 6; i < 9; i++){
             questions[i] = questions_moyennes.back();
             if (!questions_moyennes.empty()) {
-                questions_moyennes.pop_back(); // Supprimer le premier élément
+                questions_moyennes.pop_back(); // Supprimer le dernier élément
             }
         }
         questions[9] = questions_difficiles.back();
         if (!questions_difficiles.empty()) {
-            questions_difficiles.pop_back(); // Supprimer le premier élément
+            questions_difficiles.pop_back(); // Supprimer le dernier élément
         }
     } // Remplire questions en supprimant les éléments dans les tableaux
     else if(niveau_difficulte == "moyen"){
         for(int i = 0; i < 6; i++){
             questions[i] = questions_moyennes.back();
             if (!questions_moyennes.empty()) {
-                questions_moyennes.pop_back(); // Supprimer le premier élément
+                questions_moyennes.pop_back(); // Supprimer le dernier élément
             }
         }
         for(int i = 6; i < 8; i++){
             questions[i] = questions_faciles.back();
             if (!questions_faciles.empty()) {
-                questions_faciles.pop_back(); // Supprimer le premier élément
+                questions_faciles.pop_back(); // Supprimer le dernier élément
             }
         }
         for(int i = 8; i < 10; i++){
             questions[i] = questions_difficiles.back();
             if (!questions_difficiles.empty()) {
-                questions_difficiles.pop_back(); // Supprimer le premier élément
+                questions_difficiles.pop_back(); // Supprimer le dernier élément
             }
         }
     }
@@ -133,18 +133,18 @@ int qcm(string niveau_difficulte, vector<pair<string, string>> &questions_facile
         for(int i = 0; i < 6; i++){
             questions[i] = questions_difficiles.back();
             if (!questions_difficiles.empty()) {
-                questions_difficiles.pop_back(); // Supprimer le premier élément
+                questions_difficiles.pop_back(); // Supprimer le dernier élément
             }
         }
         for(int i = 6; i < 9; i++){
             questions[i] = questions_moyennes.back();
             if (!questions_moyennes.empty()) {
-                questions_moyennes.pop_back(); // Supprimer le premier élément
+                questions_moyennes.pop_back(); // Supprimer le dernier élément
             }
         }
         questions[9] = questions_faciles.back();
         if (!questions_faciles.empty()) {
-            questions_faciles.pop_back(); // Supprimer le premier élément
+            questions_faciles.pop_back(); // Supprimer le dernier élément
         }
     }
 
