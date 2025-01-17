@@ -73,7 +73,7 @@ int calculMental(string niveau) {
         }
 
         // Poser la question
-        cout << "Question " << i + 1 << ": " << a << " " << operateur << " " << b << " = ?\n";
+        cout << "Question " << i + 1 << ": " << a << " " << operateur << " " << b << " = ?" << endl;
 
         // Mesurer le temps de réponse
         auto debut = steady_clock::now();
@@ -92,25 +92,25 @@ int calculMental(string niveau) {
         }
         // Vérifier la réponse
         if (tempsEcoule) {
-            cout << "Temps écoulé ! La bonne réponse était " << resultat << ".\n";
+            cout << "Temps écoulé ! La bonne réponse était " << resultat << "." << endl;
         } else if (reponseUtilisateur == resultat) {
             cout << "Bonne réponse !\n";
             ++score;
         } else {
-            cout << "Faux. La bonne réponse était " << resultat << ".\n";
+            cout << "Faux. La bonne réponse était " << resultat << "." << endl;
         }
     }
 
     // Afficher le score final
-    cout << endl << "Votre note est : " << score << " / " << 20 << "\n";
+    cout << endl << "Votre note est : " << score*2 << " / " << 20 << endl;
 
     // Évaluation du score
     if (score == nombreQuestions) {
-        cout << "Félicitations ! Vous êtes un as du calcul mental !\n";
+        cout << "Félicitations ! Vous êtes un as du calcul mental !" << endl;
     } else if (score > nombreQuestions / 2) {
         cout << "Bon travail ! Continuez à vous entraîner.\n";
     } else {
-        cout << "Vous pouvez faire mieux. Réessayez pour progresser !\n";
+        cout << "Vous pouvez faire mieux. Réessayez pour progresser !" << endl;
     }
 
     return 2*score;
