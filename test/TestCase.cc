@@ -10,9 +10,9 @@
 
 using namespace std;
 
-TEST_SUITE("Jeu MAin"){
+TEST_SUITE("Jeu MAin"){ 
 
-TEST_CASE("1: Stats"){
+TEST_CASE("1: Stats"){ // test pour la struct Stats
   Stats stats;
   CHECK(stats.energie == 80);
   CHECK(stats.reputation == 35);
@@ -28,7 +28,7 @@ TEST_CASE("1: Stats"){
   stats.afficher();
 }
 
-TEST_CASE("2: Personnage"){
+TEST_CASE("2: Personnage"){ // test pour la classe Personnage
   Stats stats;
   Yves yves;
   Professeur prof("Michel");
@@ -47,7 +47,7 @@ TEST_CASE("2: Personnage"){
 
 }
 
-TEST_CASE("3: Evenement" ) // Changer par les bonnes valeurs
+TEST_CASE("3: Evenement" ) // test pour la classe Evenement
 {
   Stats stats;
   Yves yves;
