@@ -43,6 +43,8 @@ public:
     Controle() : Evenement("Contrôle","Un examen pour évaluer vos compétences.") {}
     Controle(int nb) : Evenement("Contrôle","Un examen pour évaluer vos compétences."), num(nb) {}
 
+    ~Controle() override = default;
+
     void executer(Stats& stats) override {
         std::cout << "Vous passez un contrôle.." << std::endl;
         
@@ -53,14 +55,16 @@ public:
         if(num == 3) resultat = PFC();
 
         if(stats.note == -1){
-            stats.note = resultat;
+            stats.nb_note += 1; 
+            stats.somme_note += resultat;
         }
         else{
-            stats.note = (stats.note + resultat) / 2; // Moyenne pondérée
+            stats.nb_note += 1; 
+            stats.somme_note += resultat;
         }
         stats.energie -= 10;
 
-
+        stats.maj_note();
         std::cout << "Vous avez obtenu " << resultat << "/20. Nouvelle note moyenne : " << stats.note << "/20." << std::endl;
         if (stats.energie <= 0) {
             stats.energie = 0;
@@ -83,13 +87,16 @@ public:
         resultat = qcm(stats.difficulte, questions_faciles, questions_moyennes, questions_difficiles);
 
         if(stats.note == -1){
-            stats.note = resultat;
+            stats.nb_note += 3; 
+            stats.somme_note += 3*resultat;
         }
         else{
-            stats.note = (3*stats.note + 2*resultat) /5; // le partiel compte beaucoup dans la moyenne
+            stats.nb_note += 3; 
+            stats.somme_note += 3*resultat;
         }
         stats.energie -= 20;
 
+        stats.maj_note();
         std::cout << "Vous avez obtenu " << resultat << "/20." << std::endl << "Nouvelle note moyenne : " << stats.note << "/20." << std::endl;
         if (stats.energie <= 0) {
             stats.energie = 0;
@@ -120,14 +127,17 @@ public:
         }
 
         if(stats.note == -1){
-            stats.note = resultat;
+            stats.nb_note += 2; 
+            stats.somme_note += 2*resultat;
         }
         else{
-            stats.note = (4*stats.note + 2*resultat) /6; // le partiel compte beaucoup dans la moyenne
+            stats.nb_note += 2; 
+            stats.somme_note += 2*resultat;
         }
         stats.energie -= 20;
         if(stats.energie < 0) stats.energie = 0;
 
+        stats.maj_note();
         std::cout << "Vous avez obtenu " << resultat << "/20." << std::endl << "Nouvelle note moyenne : " << stats.note << "/20." << std::endl;
         if (stats.energie <= 0) {
             stats.energie = 0;
@@ -373,6 +383,6 @@ public:
     }
 
 private:
-    Personnage& personne; // Utilisation d'une référence pour éviter le slicing
+    Personnage& personne; 
 };
 
