@@ -53,7 +53,7 @@ int jeu_memoire(string niveau) {
   // Saisie de la séquence par l'utilisateur
   cout << "Saisissez un nombre de la séquence : " << endl;
   for (i = 0; i < n; i++) {
-    cout << "Saisissez le nombre n°" << i << ": ";
+    cout << "Saisissez le nombre n°" << i + 1 << ": ";
     bool saisie = false;
     while (saisie == false) {
       saisie = saisirEntier(nb);
