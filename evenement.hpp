@@ -198,7 +198,7 @@ public:
 
         int choix;
         std::cout << "Quelle est votre choix (1, 2 ou 3): ";
-        std::cin >> choix;
+        choix = saisirEntierMinMax(choix, 1, 3);
         
         if (choix == 1) {
             std::cout << personne1;
@@ -254,7 +254,7 @@ public:
 
         int choix;
         std::cout << "Quelle est votre choix (1, 2 ou 3): ";
-        std::cin >> choix;
+        choix = saisirEntierMinMax(choix, 1, 3);
         
         if (choix == 1) {
             personne1.parler(stats);
