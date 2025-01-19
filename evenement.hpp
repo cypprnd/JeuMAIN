@@ -116,10 +116,10 @@ public:
     void executer(Stats& stats) override {
         
         int resultat; // Note aléatoire entre 0 et 20
-        resultat = (stats.reputation + stats.revision)*2/10;
+        resultat = (stats.reputation + stats.revision - 10)*2/10;
         if(resultat > 20) resultat = 20;
 
-        if(stats.reputation + stats.revision >= 60){
+        if(stats.reputation + stats.revision -10 <= 60){
             std::cout << "Vous n'avez pas assez travailler et vous devez plus vous sociabiliser pour avoir une meilleure note au projet" << std::endl << std::endl;
         }
         else{
