@@ -9,6 +9,15 @@
 
 using namespace std;
 
+void bloquerSaisieUtilisateur(){
+  time_t debut = time(0);
+  while(time(0) - debut < 20){
+    if(cin.peek() != EOF){ // si il y a des données à lire
+      cin.ignore(); // ignore l'entree de l'utilisateur
+    }
+  }
+}
+
 /* Jeu de mémoire
  * On donne une séquence de chiffres à mémoriser et on demande à l'utilisateur de la saisir
  * paramètre niveau qui prend les valeurs "faclie", "moyen" ou "difficile"
@@ -47,7 +56,7 @@ int jeu_memoire(string niveau) {
   }
   cout << endl;
 
-  sleep(20);
+  bloquerSaisieUtilisateur();
   (void)system("clear");
 
   // Saisie de la séquence par l'utilisateur
